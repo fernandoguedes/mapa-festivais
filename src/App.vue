@@ -12,7 +12,7 @@
         </svg>
       </template>
       <template #title>Festivais da Amazônia</template>
-      <template #subtitle>A celebrar a cultura cabocla e indígena</template>
+      <template #subtitle>Celebrando a cultura cabocla e indígena</template>
       <template #actions>
         <div class="bg-muted text-muted-foreground px-4 py-2 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2">
           <MapPin :size="16" class="text-accent" />
@@ -25,7 +25,7 @@
     </HeaderBar>
 
     <div class="flex-1 overflow-hidden">
-      <main class="h-full container mx-auto py-4 md:py-6 grid grid-cols-1 md:grid-cols-3 md:grid-rows-1 gap-6">
+      <main class="h-full container mx-auto py-4 md:py-6 grid grid-cols-1 grid-rows-[40%_auto] md:grid-cols-3 md:grid-rows-1 gap-6">
         
         <FestivalMap 
           ref="festivalMapComponent"
@@ -238,7 +238,7 @@ const handleSelectionClear = () => {
 
 const resetMapView = () => {
   clearFilters();
-  festivalMapComponent.value?.fitMapToVisible();
+  festivalMapComponent.value?.resetMapView();
 };
 
 onMounted(async () => {
