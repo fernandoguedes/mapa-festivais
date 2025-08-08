@@ -1,10 +1,278 @@
 [
-  { "id": 1, "name": "Festival Folclórico de Parintins", "city": "Parintins, AM", "date": "Último fim de semana de Junho", "month": 6, "coords": [-2.6280, -56.7355], "description": "A maior ópera a céu aberto do mundo, com a disputa épica entre os bois Caprichoso e Garantido.", "icon": "theater" },
-  { "id": 2, "name": "Festival da Ciranda de Manacapuru", "city": "Manacapuru, AM", "date": "Último fim de semana de Agosto", "month": 8, "coords": [-3.2996, -60.6208], "description": "Uma celebração vibrante de dança e música com as cirandas Flor Matizada, Guerreiros Mura e Tradicional.", "icon": "music" },
-  { "id": 3, "name": "Festival da Canção (FECANI)", "city": "Itacoatiara, AM", "date": "Primeira semana de Setembro", "month": 9, "coords": [-3.1425, -58.4442], "description": "Um dos maiores festivais de música da região, revelando e consagrando talentos.", "icon": "mic" },
-  { "id": 4, "name": "Festa do Guaraná", "city": "Maués, AM", "date": "Fim de Novembro / Início de Dezembro", "month": 11, "coords": [-3.3897, -57.7184], "description": "Celebração da colheita do guaraná, fruto sagrado dos Sateré-Mawé, com a encenação da lenda.", "icon": "leaf" },
-  { "id": 5, "name": "Festival de Verão de Tefé", "city": "Tefé, AM", "date": "Setembro", "month": 9, "coords": [-3.3544, -64.7108], "description": "Evento musical às margens do lago de Tefé, reunindo artistas nacionais e locais.", "icon": "sun" },
-  { "id": 6, "name": "Festival de Inverno de Novo Airão", "city": "Novo Airão, AM", "date": "Julho", "month": 7, "coords": [-2.6203, -60.9403], "description": "Combina música, arte e natureza na porta de entrada do Parque Nacional de Anavilhanas.", "icon": "mountain-snow" },
-  { "id": 7, "name": "Festa do Açaí de Codajás", "city": "Codajás, AM", "date": "Agosto", "month": 8, "coords": [-3.8367, -62.0569], "description": "Celebração do fruto mais icônico da região com degustações e shows culturais.", "icon": "grape" },
-  { "id": 8, "name": "Festival do Tambaqui", "city": "Manaus, AM", "date": "Outubro", "month": 10, "coords": [-3.1190, -60.0217], "description": "Evento gastronômico que celebra o peixe mais típico da região com competições culinárias.", "icon": "fish" }
+  {
+    "id": 1,
+    "name": "Festival Folclórico de Parintins",
+    "city": "Parintins, AM",
+    "date": "Último fim de semana de Junho",
+    "month": 6,
+    "coords": [-2.6280, -56.7355],
+    "description": "A maior ópera a céu aberto do mundo, com a disputa épica entre os bois Caprichoso e Garantido.",
+    "icon": "theater",
+    "links": {
+      "website": "https://festivaldeparintins.com.br/",
+      "instagram": "https://www.instagram.com/festivaldeparintins/",
+      "youtube": "https://www.youtube.com/c/FestivaldeParintins"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Festival da Ciranda de Manacapuru",
+    "city": "Manacapuru, AM",
+    "date": "Último fim de semana de Agosto",
+    "month": 8,
+    "coords": [-3.2996, -60.6208],
+    "description": "Uma celebração vibrante de dança e música com as cirandas Flor Matizada, Guerreiros Mura e Tradicional. Tradição que une gerações.",
+    "icon": "music",
+    "links": {
+      "instagram": "https://www.instagram.com/prefeituramanacapuru/",
+      "youtube": "https://www.youtube.com/@prefeituramanacapuru"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Festival da Canção (FECANI)",
+    "city": "Itacoatiara, AM",
+    "date": "Primeira semana de Setembro",
+    "month": 9,
+    "coords": [-3.1425, -58.4442],
+    "description": "Um dos maiores festivais de música da região Norte, revelando e consagrando talentos musicais da Amazônia.",
+    "icon": "mic",
+    "links": {
+      "instagram": "https://www.instagram.com/prefeituraitacoatiara/",
+      "youtube": "https://www.youtube.com/@prefeituraitacoatiara"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Festa do Guaraná",
+    "city": "Maués, AM",
+    "date": "Fim de Novembro / Início de Dezembro",
+    "month": 11,
+    "coords": [-3.3897, -57.7184],
+    "description": "Celebração da colheita do guaraná, fruto sagrado dos Sateré-Mawé, com a encenação da lenda e rituais tradicionais.",
+    "icon": "leaf",
+    "links": {
+      "website": "https://maues.am.gov.br/festa-do-guarana/",
+      "instagram": "https://www.instagram.com/festadoguaranaoficial/"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Festival de Verão de Tefé",
+    "city": "Tefé, AM",
+    "date": "Setembro",
+    "month": 9,
+    "coords": [-3.3544, -64.7108],
+    "description": "Evento musical às margens do lago de Tefé, reunindo artistas nacionais e locais em uma atmosfera única.",
+    "icon": "sun",
+    "links": {
+      "instagram": "https://www.instagram.com/prefeituradetefe/"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Festival de Inverno de Novo Airão",
+    "city": "Novo Airão, AM",
+    "date": "Julho",
+    "month": 7,
+    "coords": [-2.6203, -60.9403],
+    "description": "Combina música, arte e natureza na porta de entrada do Parque Nacional de Anavilhanas. Ecoturismo e cultura.",
+    "icon": "mountain-snow",
+    "links": {
+      "instagram": "https://www.instagram.com/prefeituradenovoairao/"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Festa do Açaí de Codajás",
+    "city": "Codajás, AM",
+    "date": "Agosto",
+    "month": 8,
+    "coords": [-3.8367, -62.0569],
+    "description": "Celebração do fruto mais icônico da região com degustações, competições culinárias e shows culturais.",
+    "icon": "grape",
+    "links": {
+      "instagram": "https://www.instagram.com/prefeituradecodajas/"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Festival do Tambaqui",
+    "city": "Manaus, AM",
+    "date": "Outubro",
+    "month": 10,
+    "coords": [-3.1190, -60.0217],
+    "description": "Evento gastronômico que celebra o peixe mais típico da região amazônica com competições culinárias e tradições.",
+    "icon": "fish",
+    "links": {
+      "instagram": "https://www.instagram.com/manausturismo/"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Festival Folclórico de Manaus",
+    "city": "Manaus, AM",
+    "date": "Segunda quinzena de Junho",
+    "month": 6,
+    "coords": [-3.1190, -60.0217],
+    "description": "Espetáculo que reúne bois-bumbás de Manaus e interior, preservando as tradições folclóricas amazônicas na capital.",
+    "icon": "theater",
+    "links": {
+      "instagram": "https://www.instagram.com/culturadamanaus/",
+      "youtube": "https://www.youtube.com/@fundacaodecultura6537"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Festival de Inverno de Bonito",
+    "city": "Bonito, PA",
+    "date": "Julho",
+    "month": 7,
+    "coords": [-1.3647, -47.8069],
+    "description": "Festival que mistura música regional e nacional em uma das regiões mais belas do Pará, às margens do Rio Capim.",
+    "icon": "music",
+    "links": {
+      "instagram": "https://www.instagram.com/prefeiturabonitopa/"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Círio de Nazaré",
+    "city": "Belém, PA",
+    "date": "Segundo domingo de Outubro",
+    "month": 10,
+    "coords": [-1.4558, -48.4902],
+    "description": "Uma das maiores manifestações religiosas do Brasil, misturando fé católica com tradições amazônicas centenárias.",
+    "icon": "sun",
+    "links": {
+      "website": "https://www.ciriodenazare.com.br/",
+      "instagram": "https://www.instagram.com/ciriodenazare/",
+      "youtube": "https://www.youtube.com/c/Ciriooficial"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Festival de Ópera do Amazonas",
+    "city": "Manaus, AM",
+    "date": "Abril e Maio",
+    "month": 5,
+    "coords": [-3.1190, -60.0217],
+    "description": "Prestigioso festival internacional de ópera realizado no histórico Teatro Amazonas, patrimônio cultural da região.",
+    "icon": "theater",
+    "links": {
+      "website": "https://www.cultura.am.gov.br/evento/festival-amazonas-de-opera/",
+      "instagram": "https://www.instagram.com/culturaamazonas/",
+      "youtube": "https://www.youtube.com/@culturaamazonas"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Festival de Rock do Amazonas",
+    "city": "Manaus, AM",
+    "date": "Novembro",
+    "month": 11,
+    "coords": [-3.1190, -60.0217],
+    "description": "O maior festival de rock da região Norte, reunindo bandas locais e nacionais em uma celebração da música alternativa.",
+    "icon": "mic",
+    "links": {
+      "instagram": "https://www.instagram.com/rockdonorteoficial/"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Fest Açaí Santarém",
+    "city": "Santarém, PA",
+    "date": "Julho",
+    "month": 7,
+    "coords": [-2.4448, -54.7081],
+    "description": "Celebração do açaí em uma das principais cidades produtoras, com gastronomia típica e apresentações culturais.",
+    "icon": "grape",
+    "links": {
+      "instagram": "https://www.instagram.com/festacaidesantarem/"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Festival de Pesca do Tucunaré",
+    "city": "Barcelos, AM",
+    "date": "Setembro e Outubro",
+    "month": 9,
+    "coords": [-0.9781, -62.9344],
+    "description": "Maior evento de pesca esportiva da Amazônia, atraindo pescadores do mundo inteiro para o Rio Negro.",
+    "icon": "fish",
+    "links": {
+      "website": "https://festivaldotucunare.com.br/",
+      "instagram": "https://www.instagram.com/festivaldotucunare/",
+      "youtube": "https://www.youtube.com/@festivaldotucunare"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Festival de Dança de Óbidos",
+    "city": "Óbidos, PA",
+    "date": "Junho",
+    "month": 6,
+    "coords": [-1.9161, -55.5208],
+    "description": "Festival que celebra a diversidade da dança amazônica, com grupos folclóricos e contemporâneos da região.",
+    "icon": "music",
+    "links": {
+      "instagram": "https://www.instagram.com/prefeituradeobidos/"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Festival Gastronômico de Belém",
+    "city": "Belém, PA",
+    "date": "Agosto",
+    "month": 8,
+    "coords": [-1.4558, -48.4902],
+    "description": "Celebração da rica culinária paraense, com chefs renomados apresentando pratos típicos e releituras modernas.",
+    "icon": "fish",
+    "links": {
+      "website": "https://www.festivalgastronomicodebelem.com.br/",
+      "instagram": "https://www.instagram.com/festivalgastronomicobelem/"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Festival de Arte de Rua do Acre",
+    "city": "Rio Branco, AC",
+    "date": "Setembro",
+    "month": 9,
+    "coords": [-9.9753, -67.8249],
+    "description": "Festival que transforma as ruas da capital acreana em galeria a céu aberto, com grafites e intervenções artísticas.",
+    "icon": "theater",
+    "links": {
+      "instagram": "https://www.instagram.com/farufac/",
+      "youtube": "https://www.youtube.com/@farufac"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Festival do Folclore Acreano",
+    "city": "Rio Branco, AC",
+    "date": "Dezembro",
+    "month": 12,
+    "coords": [-9.9753, -67.8249],
+    "description": "Resgate e valorização das tradições folclóricas acreanas, com apresentações de grupos locais e oficinas culturais.",
+    "icon": "music",
+    "links": {
+      "instagram": "https://www.instagram.com/fundacaodeculturadacidade/"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Festival de Inverno de Alter do Chão",
+    "city": "Santarém, PA",
+    "date": "Julho",
+    "month": 7,
+    "coords": [-2.5167, -54.9561],
+    "description": "Festival na 'Praia do Caribe Amazônico', combinando música, natureza exuberante e a beleza única de Alter do Chão.",
+    "icon": "sun",
+    "links": {
+      "website": "https://www.festivaldeinvernodealter.com/",
+      "instagram": "https://www.instagram.com/festivaldeinvernodealter/",
+      "youtube": "https://www.youtube.com/@FestivaldeInvernodeAlter"
+    }
+  }
 ]
