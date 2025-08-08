@@ -28,6 +28,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import L from 'leaflet';
+import 'leaflet.markercluster'; // Importe o plugin
 import { X, Focus, Maximize, Loader2 } from 'lucide-vue-next';
 
 const props = defineProps({
@@ -42,6 +43,7 @@ const emit = defineEmits(['festival-selected-on-map', 'selection-cleared', 'view
 const mapContainer = ref(null);
 const map = ref(null);
 const markers = ref({});
+const markerClusterGroup = ref(null); // Ref para o grupo de clusters
 
 const createIcon = (color, accentColor) => L.icon({
   iconUrl: `data:image/svg+xml;base64,${btoa(`
@@ -92,6 +94,9 @@ const initMap = () => {
     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     subdomains: 'abcd', maxZoom: 16
   }).addTo(map.value);
+
+  markerClusterGroup.value = L.markerClusterGroup();
+  map.value.addLayer(markerClusterGroup.value);
 };
 
 const addMarkersToMap = () => {
@@ -107,14 +112,13 @@ const addMarkersToMap = () => {
 };
 
 const updateVisibleMarkers = () => {
-  if (!map.value) return;
-  const filteredIds = new Set(props.filteredFestivals.map(f => f.id));
-  Object.keys(markers.value).forEach(id => {
-    const marker = markers.value[id];
-    if (filteredIds.has(parseInt(id))) {
-      if (!map.value.hasLayer(marker)) marker.addTo(map.value);
-    } else {
-      if (map.value.hasLayer(marker)) map.value.removeLayer(marker);
+  if (!markerClusterGroup.value) return;
+  markerClusterGroup.value.clearLayers();
+  
+  props.filteredFestivals.forEach(festival => {
+    const marker = markers.value[festival.id];
+    if (marker) {
+      markerClusterGroup.value.addLayer(marker);
     }
   });
 };
@@ -129,8 +133,17 @@ const fitMapToBounds = (coords) => {
 
 const panToFestival = (festival) => {
   if (!map.value) return;
-  map.value.flyTo(festival.coords, 11, { animate: true, duration: 1.5 });
-  setTimeout(() => markers.value[festival.id]?.openPopup(), 800);
+  const marker = markers.value[festival.id];
+  if (marker) {
+    if (markerClusterGroup.value.hasLayer(marker)) {
+      map.value.flyTo(festival.coords, 14, { animate: true, duration: 1.5 });
+      setTimeout(() => marker.openPopup(), 800);
+    } else {
+      markerClusterGroup.value.zoomToShowLayer(marker, () => {
+        marker.openPopup();
+      });
+    }
+  }
 };
 
 const highlightMarker = (festival, isHighlight) => {
