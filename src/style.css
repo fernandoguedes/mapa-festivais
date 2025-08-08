@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Efeito glassmorphism para tema claro */
+body {
+  background-color: #FDF8F0;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(60, 42, 33, 0.1);
+}
+
+.header-gradient {
+  background: linear-gradient(135deg,
+    rgba(253, 248, 240, 0.95) 0%,
+    rgba(248, 241, 228, 0.98) 50%,
+    rgba(253, 248, 240, 0.95) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Customização do popup do Leaflet */
+.leaflet-popup-content-wrapper {
+  background: #FDF8F0;
+  color: #3C2A21;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(231, 119, 40, 0.3);
+}
+
+.leaflet-popup-content {
+  margin: 15px;
+  font-family: 'Lato', sans-serif;
+}
+
+.leaflet-popup-tip {
+  background: #FDF8F0;
+}
+
+.leaflet-popup-close-button {
+  color: #E77728 !important;
+}
+
+.popup-title {
+  font-weight: 700;
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+  color: #285C4D;
+  margin-bottom: 8px;
+}
+
+/* Scrollbar customizada */
+.custom-scrollbar {
+  padding: 0.5rem;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(60, 42, 33, 0.05);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #8A6F55;
+  border-radius: 10px;
+  border: 2px solid #FDF8F0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #E77728;
+}
+
+/* Efeitos de hover */
+.festival-card {
+  transition: all 0.3s ease;
+}
+
+.festival-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(90, 64, 44, 0.15);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Estilos para inputs */
+.search-input {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(60, 42, 33, 0.2);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: #E77728;
+  box-shadow: 0 0 0 3px rgba(231, 119, 40, 0.2);
+}
+
+/* Botões de ação */
+.action-button {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
+/* Status badge */
+.status-badge {
+  background: linear-gradient(135deg, #285C4D, #3a7360);
+  box-shadow: 0 2px 4px rgba(40, 92, 77, 0.3);
+}
+
+/* Responsive header adjustments */
+@media (max-width: 768px) {
+  .header-content {
+    text-align: center;
+  }
+
+  .header-actions {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
