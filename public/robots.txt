@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://festivais-da-amazonia.web.app/sitemap.xml

@@ -2,7 +2,8 @@
   <div class="flex flex-col h-screen bg-background text-foreground">
     <HeaderBar>
       <template #logo>
-        <svg viewBox="0 0 100 100" class="w-10 h-10 text-primary">
+        <svg viewBox="0 0 100 100" class="w-10 h-10 text-primary" role="img" aria-labelledby="logoTitle">
+          <title id="logoTitle">Logo do Mapa de Festivais da Amazônia</title>
            <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="4" fill="none"/>
            <path d="M50 10 L65 30 L50 40 L35 30 Z" fill="currentColor"/>
            <path d="M50 90 L35 70 L50 60 L65 70 Z" fill="currentColor"/>
@@ -16,9 +17,9 @@
       <template #actions>
         <div class="bg-muted text-muted-foreground px-4 py-2 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2">
           <MapPin :size="16" class="text-accent" />
-          <span>Exibindo <b>{{ filteredFestivals.length }}</b> de <b>{{ festivals.length }}</b></span>
+          <span>Exibindo <strong>{{ filteredFestivals.length }}</strong> de <strong>{{ festivals.length }}</strong></span>
         </div>
-        <button @click="showAboutModal = true" title="Sobre este projeto" class="bg-secondary text-secondary-foreground p-2.5 rounded-full hover:bg-secondary-600 transition-colors">
+        <button @click="showAboutModal = true" title="Sobre este projeto" aria-label="Sobre este projeto" class="bg-secondary text-secondary-foreground p-2.5 rounded-full hover:bg-secondary-600 transition-colors">
           <Info :size="20" />
         </button>
       </template>
@@ -52,20 +53,22 @@
 
           <div class="space-y-4 mb-4 flex-shrink-0">
             <div class="relative">
+              <label for="search" class="sr-only">Procurar por nome ou cidade</label>
               <Search class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-accent" />
-              <input v-model="searchTerm" type="text" placeholder="Procurar por nome ou cidade..." class="w-full pl-10 pr-4 py-2.5 rounded-lg text-foreground bg-muted border border-border focus:ring-2 focus:ring-accent focus:border-accent transition">
+              <input id="search" v-model="searchTerm" type="text" placeholder="Procurar por nome ou cidade..." class="w-full pl-10 pr-4 py-2.5 rounded-lg text-foreground bg-muted border border-border focus:ring-2 focus:ring-accent focus:border-accent transition">
             </div>
             <div class="flex gap-3">
               <div class="relative flex-1">
+                <label for="month-select" class="sr-only">Filtrar por mês</label>
                 <Calendar class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-accent pointer-events-none" />
-                <select v-model="selectedMonth" class="w-full px-3 py-2.5 rounded-lg text-foreground bg-muted border border-border focus:ring-2 focus:ring-accent focus:border-accent transition appearance-none">
+                <select id="month-select" v-model="selectedMonth" class="w-full px-3 py-2.5 rounded-lg text-foreground bg-muted border border-border focus:ring-2 focus:ring-accent focus:border-accent transition appearance-none">
                   <option value="">Todos os meses</option>
                   <option v-for="month in availableMonths" :key="month.value" :value="month.value">
                     {{ month.label }} ({{ month.count }})
                   </option>
                 </select>
               </div>
-              <button v-if="hasActiveFilters" @click="clearFilters" title="Limpar filtros" class="bg-muted hover:bg-border text-muted-foreground px-4 py-2.5 rounded-lg transition-colors">
+              <button v-if="hasActiveFilters" @click="clearFilters" title="Limpar filtros" aria-label="Limpar filtros" class="bg-muted hover:bg-border text-muted-foreground px-4 py-2.5 rounded-lg transition-colors">
                 <X :size="16" />
               </button>
             </div>
@@ -84,12 +87,12 @@
           </div>
 
           <div class="space-y-2 overflow-y-auto scrollbar-themed flex-grow -mx-2 px-2 min-h-0">
-            <div v-for="festival in filteredFestivals" :key="festival.id" 
+            <button v-for="festival in filteredFestivals" :key="festival.id"
               @click="panToFestival(festival)"
               @mouseenter="highlightMarker(festival, true)"
               @mouseleave="highlightMarker(festival, false)"
               :class="[
-                'p-3 rounded-lg cursor-pointer transition-all duration-200 border-l-4',
+                'w-full text-left p-3 rounded-lg transition-all duration-200 border-l-4',
                 selectedFestival?.id === festival.id
                   ? 'bg-primary/10 border-primary shadow-sm'
                   : 'border-transparent hover:bg-primary/5 hover:border-primary/30'
@@ -139,7 +142,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { 
   MapPin, Info, Search, Calendar, X, SearchX, Focus, Maximize, Loader2, 
   Theater, Music, Mic, Leaf, Sun, MountainSnow, Grape, Fish, Compass,
@@ -240,6 +243,24 @@ const resetMapView = () => {
   clearFilters();
   festivalMapComponent.value?.resetMapView();
 };
+
+watch(selectedFestival, (newFestival) => {
+  const defaultTitle = 'Mapa de Festivais da Amazônia';
+  const metaDescription = document.getElementById('meta-description');
+  const defaultDescription = 'Mapa interativo dos festivais folclóricos da região amazônica - Um guia da cultura cabocla e indígena';
+
+  if (newFestival) {
+    document.title = `${newFestival.name} | ${defaultTitle}`;
+    if (metaDescription) {
+      metaDescription.setAttribute('content', newFestival.description);
+    }
+  } else {
+    document.title = defaultTitle;
+    if (metaDescription) {
+      metaDescription.setAttribute('content', defaultDescription);
+    }
+  }
+});
 
 onMounted(async () => {
   try {
